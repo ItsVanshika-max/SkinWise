@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="Build a skincare routine, check active ingredient pairings, and explore a simple skin-cycling schedule with SkinWise.">
+    <title>SkinWise — Your skincare, in balance</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="sidebar">
+        <a class="brand" href="#home" data-page="home" aria-label="SkinWise home">
+          <span class="brand-mark" aria-hidden="true">s</span>
+          <span class="brand-copy">
+            <strong>skinwise</strong>
+            <small>YOUR ROUTINE, IN BALANCE</small>
+          </span>
+        </a>
+
+        <p class="nav-caption">WORKSPACE</p>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-item" type="button" data-page="home"><span class="nav-icon">⌂</span>Overview</button>
+          <button class="nav-item" type="button" data-page="routine"><span class="nav-icon">◉</span>Routine analyzer</button>
+          <button class="nav-item" type="button" data-page="dashboard"><span class="nav-icon">▦</span>My dashboard</button>
+          <button class="nav-item" type="button" data-page="profile"><span class="nav-icon">♡</span>Skin profile</button>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="note-icon">✳</span>
+          <strong>A little reminder</strong>
+          <p>Introduce new actives slowly. Your skin doesn't need a 10-step routine to feel cared for.</p>
+        </div>
+
+        <div class="sidebar-bottom">
+          <span class="online-dot"></span>
+          <span>Private on this device</span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>SkinWise</span><span class="breadcrumb-separator">/</span><strong id="current-section">Overview</strong></div>
+          <div class="topbar-actions">
+            <span class="status-pill" id="header-status"><span class="status-dot"></span><span id="header-status-text">Checking routine</span></span>
+            <button class="button button-dark button-small" type="button" data-page="routine">Check my routine <span aria-hidden="true">↗</span></button>
+          </div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="page is-active" id="page-home" aria-labelledby="home-title">
+            <div class="welcome-row">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-line"></span> A calmer way to care for your skin</p>
+                <h1 class="display-title" id="home-title">Good skin days<br><em>start with balance.</em></h1>
+                <p class="lead">Get to know your ingredients, spot combinations worth spacing out, and build a routine that feels right for you.</p>
+                <div class="hero-actions">
+                  <button class="button button-dark" type="button" data-page="routine">Build my routine <span aria-hidden="true">→</span></button>
+                  <button class="button button-quiet" type="button" data-page="dashboard">Explore dashboard</button>
+                </div>
+              </div>
+              <div class="hero-art" aria-label="Illustration of a skincare bottle and leaves">
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <div class="hero-leaf leaf-one"></div>
+                <div class="hero-leaf leaf-two"></div>
+                <div class="hero-bottle">
+                  <span class="bottle-cap"></span>
+                  <span class="bottle-label"><b>SW</b><small>DAILY<br>RITUAL</small></span>
+                </div>
+                <div class="hero-sticker"><span>✦</span><small>LESS<br>GUESSING</small></div>
+                <div class="hero-caption">A routine that works <span>with</span> your skin.</div>
+              </div>
+            </div>
+
+            <div class="quick-stats" id="home-stats"></div>
+
+            <section class="section-block">
+              <div class="section-heading">
+                <div><p class="eyebrow">YOUR STARTING POINT</p><h2>A few good things to know</h2></div>
+                <button class="text-button" type="button" data-page="routine">Open routine analyzer <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="feature-grid">
+                <article class="feature-card">
+                  <span class="feature-symbol symbol-sage">✳</span>
+                  <p class="eyebrow">01 / LAYER WITH CARE</p>
+                  <h3>Know what plays well together</h3>
+                  <p>See common ingredient pairings that may be more comfortable on separate nights.</p>
+                </article>
+                <article class="feature-card">
+                  <span class="feature-symbol symbol-peach">◷</span>
+                  <p class="eyebrow">02 / KEEP IT SIMPLE</p>
+                  <h3>Make space for recovery</h3>
+                  <p>A gentle rhythm can help you use treatment and exfoliation products thoughtfully.</p>
+                </article>
+                <article class="feature-card">
+                  <span class="feature-symbol symbol-lilac">♡</span>
+                  <p class="eyebrow">03 / MAKE IT YOURS</p>
+                  <h3>Start with your skin</h3>
+                  <p>Save your skin type and concerns to keep your personal routine in one place.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="section-block">
+              <div class="section-heading">
+                <div><p class="eyebrow">A FEW ROUTINE FAVORITES</p><h2>Explore the product shelf</h2></div>
+                <button class="text-button" type="button" data-page="routine">Browse all products <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="product-grid product-grid-home" id="home-products"></div>
+            </section>
+
+            <aside class="disclaimer-banner">
+              <span class="disclaimer-icon">i</span>
+              <p><strong>A note on skin advice</strong> SkinWise is an educational tool, not a medical service. Product formulas and individual skin needs differ. Ask a qualified dermatologist about persistent irritation or prescription treatments.</p>
+            </aside>
+          </section>
+
+          <section class="page" id="page-routine" aria-labelledby="routine-title" hidden>
+            <div class="page-heading">
+              <div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR PERSONAL ROUTINE STUDIO</p><h1 id="routine-title">Let's make it <em>work together.</em></h1><p class="lead">Add the products or ingredients you use. We'll flag a few common pairings to review.</p></div>
+              <span class="heading-sparkle" aria-hidden="true">✳</span>
+            </div>
+
+            <div class="analyzer-layout">
+              <section class="panel builder-panel">
+                <div class="panel-heading">
+                  <div><p class="eyebrow">STEP 01</p><h2>Build your routine</h2></div>
+                  <button class="button button-quiet button-small" type="button" data-action="clear">Clear all</button>
+                </div>
+
+                <div class="preset-area">
+                  <p class="field-label">Try a starting point</p>
+                  <div class="preset-list">
+                    <button class="preset-chip" type="button" data-preset="sample">✨ The daily mix</button>
+                    <button class="preset-chip" type="button" data-preset="acne">◉ Blemish-prone</button>
+                    <button class="preset-chip" type="button" data-preset="barrier">♡ Barrier care</button>
+                    <button class="preset-chip" type="button" data-preset="morning">☀ Morning glow</button>
+                  </div>
+                </div>
+
+                <form class="add-form" id="active-form">
+                  <label class="sr-only" for="active-input">Add an ingredient</label>
+                  <input id="active-input" name="active" type="text" maxlength="60" placeholder="Add an ingredient, e.g. azelaic acid">
+                  <button class="button button-dark" type="submit">Add ingredient <span aria-hidden="true">+</span></button>
+                </form>
+
+                <div class="quick-add">
+                  <p class="field-label">Popular ingredients</p>
+                  <div class="quick-chip-list" id="quick-actives"></div>
+                </div>
+
+                <div class="selected-area">
+                  <div class="selected-heading"><p class="field-label">In your routine <span id="active-count">(0)</span></p><span class="muted-caption">Select × to remove</span></div>
+                  <div class="selected-chips" id="selected-actives"></div>
+                </div>
+
+                <div class="selected-products" id="selected-products"></div>
+              </section>
+
+              <section class="panel analysis-panel" aria-live="polite">
+                <div class="panel-heading analysis-heading">
+                  <div><p class="eyebrow">STEP 02</p><h2>Your routine check-in</h2></div>
+                  <span class="analysis-leaf" aria-hidden="true">✳</span>
+                </div>
+                <div class="score-row">
+                  <div class="score-ring" id="score-ring"><div><strong id="safety-score">100</strong><small>out of 100</small></div></div>
+                  <div class="score-copy"><span class="score-label" id="score-label">A gentle balance</span><h3 id="analysis-title">Your routine is looking calm.</h3><p id="analysis-summary">Add a few ingredients to see the combinations and ideas to explore.</p></div>
+                </div>
+                <div class="analysis-tabs" role="tablist" aria-label="Routine analysis">
+                  <button class="analysis-tab is-active" type="button" role="tab" data-tab="conflicts" aria-selected="true">Pairings <span id="conflict-count">0</span></button>
+                  <button class="analysis-tab" type="button" role="tab" data-tab="synergies" aria-selected="false">Good company <span id="synergy-count">0</span></button>
+                  <button class="analysis-tab" type="button" role="tab" data-tab="schedule" aria-selected="false">Simple rhythm</button>
+                </div>
+                <div class="analysis-results" id="analysis-results"></div>
+                <p class="analysis-footnote">These are general educational notes, not a diagnosis. Formulas, strengths, and skin tolerance vary.</p>
+              </section>
+            </div>
+
+            <section class="section-block catalog-block">
+              <div class="section-heading">
+                <div><p class="eyebrow">A SMALL EDITOR'S SHELF</p><h2>Browse products</h2><p class="section-subtitle">Choose a product to add its featured ingredients to your routine.</p></div>
+                <label class="search-box"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Find a product" aria-label="Search products"></label>
+              </div>
+              <div class="filter-row" id="product-filters"></div>
+              <div class="product-grid" id="routine-products"></div>
+            </section>
+          </section>
+
+          <section class="page" id="page-dashboard" aria-labelledby="dashboard-title" hidden>
+            <div class="page-heading dashboard-heading">
+              <div><p class="eyebrow"><span class="eyebrow-line"></span> YOUR LITTLE SKIN SPACE</p><h1 id="dashboard-title">A softer routine, <em>at a glance.</em></h1><p class="lead" id="dashboard-greeting">Your routine, your pace. Here's where things stand today.</p></div>
+              <button class="button button-dark" type="button" data-page="routine">Edit my routine <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="dashboard-stats" id="dashboard-stats"></div>
+            <div class="dashboard-grid">
+              <section class="panel weekly-panel"><div class="panel-heading"><div><p class="eyebrow">A FLEXIBLE TEMPLATE</p><h2>Your week, with breathing room</h2></div><span class="week-badge">7-day rhythm</span></div><p class="panel-intro">A sample rhythm that alternates treatment evenings with recovery. Adjust it to your products and how your skin feels.</p><div class="week-list" id="week-list"></div></section>
+              <section class="panel shelf-panel"><div class="panel-heading"><div><p class="eyebrow">ON YOUR SHELF</p><h2>Products & ingredients</h2></div><button class="text-button" type="button" data-page="routine">Edit <span aria-hidden="true">→</span></button></div><div class="dashboard-product-list" id="dashboard-products"></div><div class="dashboard-actives"><p class="field-label">Your ingredients</p><div class="selected-chips" id="dashboard-actives"></div></div></section>
+            </div>
+          </section>
+
+          <section class="page" id="page-profile" aria-labelledby="profile-title" hidden>
+            <div class="page-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> A ROUTINE THAT STARTS WITH YOU</p><h1 id="profile-title">Your skin, <em>your story.</em></h1><p class="lead">Save a few details to make this space feel like yours. Your profile stays in this browser.</p></div><span class="profile-heart" aria-hidden="true">♡</span></div>
+            <div class="profile-layout">
+              <form class="panel profile-form" id="profile-form">
+                <div class="panel-heading"><div><p class="eyebrow">YOUR DETAILS</p><h2>A little about you</h2></div><span class="profile-avatar" id="profile-avatar">S</span></div>
+                <label class="form-label" for="profile-name">Name</label><input class="form-control" id="profile-name" name="name" maxlength="60" placeholder="What should we call you?">
+                <fieldset class="form-fieldset"><legend class="form-label">How would you describe your skin?</legend><div class="choice-list" id="skin-type-options"></div></fieldset>
+                <fieldset class="form-fieldset"><legend class="form-label">How sensitive does your skin feel?</legend><div class="choice-list" id="sensitivity-options"></div></fieldset>
+                <fieldset class="form-fieldset"><legend class="form-label">What would you like to focus on?</legend><div class="concern-list" id="concern-options"></div></fieldset>
+                <div class="form-footer"><p class="save-message" id="save-message" role="status"></p><button class="button button-dark" type="submit">Save my profile <span aria-hidden="true">→</span></button></div>
+              </form>
+              <aside class="panel profile-guide"><span class="guide-flower" aria-hidden="true">✿</span><p class="eyebrow">A GENTLE NOTE</p><h2>Your skin is allowed to change.</h2><p>Weather, stress, hormones, and new products can all affect how your skin feels. Treat your profile as a starting point, not a fixed label.</p><div class="guide-divider"></div><h3>Keep the basics close</h3><ul><li>Be gentle when cleansing.</li><li>Moisturize in a way that feels comfortable.</li><li>Use broad-spectrum sunscreen during the day.</li><li>Pause a product if it causes persistent irritation.</li></ul><p class="guide-disclaimer">For persistent or concerning symptoms, check in with a licensed dermatologist.</p></aside>
+            </div>
+          </section>
+
+          <footer class="app-footer"><span>Made for more thoughtful routines <span aria-hidden="true">✳</span></span><span>Educational use only · Not medical advice</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
